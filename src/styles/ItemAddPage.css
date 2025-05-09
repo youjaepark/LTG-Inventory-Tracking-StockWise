@@ -1,0 +1,299 @@
+/* 
+ * ItemAddPage Component Styles
+ * 
+ * Defines styles for the item add/edit form interface with:
+ * 1. Clean form layout with responsive adjustments
+ * 2. Image upload/preview section
+ * 3. Form fields with consistent styling
+ * 4. Action buttons with visual hierarchy
+ */
+
+.item-add-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+/* Header section */
+.item-add-page .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: white;
+  border-bottom: 1px solid #e1e4e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  z-index: 10;
+}
+
+.item-add-page .header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #343a40;
+  margin: 0;
+}
+
+.back-button {
+  background-color: #f1f3f5;
+  color: #495057;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+  background-color: #e9ecef;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form layout */
+.item-form {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  overflow: auto;
+  padding: 32px;
+  gap: 32px;
+}
+
+.form-left {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.form-right {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* Form sections */
+.form-section {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid #eaeaea;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #343a40;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Image upload section */
+.image-upload-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  border: 1px solid #eaeaea;
+  padding: 24px;
+}
+
+.image-upload {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-preview {
+  height: 280px;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px dashed #ced4da;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ced4da;
+}
+
+.placeholder span {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.placeholder p {
+  font-size: 14px;
+  color: #8898aa;
+}
+
+.image-upload input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #495057;
+}
+
+/* Form field styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #343a40;
+}
+
+.required {
+  color: #e74c3c;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  color: #495057;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Form action buttons */
+.form-actions-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 16px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.save-button {
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  flex: 1;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.save-button:hover {
+  background-color: #27ae60;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cancel-button {
+  background-color: #f1f3f5;
+  color: #495057;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  flex: 1;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+}
+
+.cancel-button:hover {
+  background-color: #e74c3c;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .item-form {
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .form-left {
+    width: 280px;
+  }
+
+  .image-preview {
+    height: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .item-form {
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .form-left {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .form-right {
+    width: 100%;
+  }
+
+  .image-preview {
+    height: 220px;
+  }
+
+  .item-add-page .header {
+    padding: 16px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+}

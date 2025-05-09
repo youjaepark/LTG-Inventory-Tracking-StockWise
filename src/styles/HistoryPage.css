@@ -1,0 +1,222 @@
+/* 
+ * HistoryPage Component Styles
+ * 
+ * Defines styles for the inventory history view with:
+ * 1. Clean table layout with responsive behavior
+ * 2. Sortable column headers with visual indicators
+ * 3. Search functionality and filtering
+ * 4. Consistent spacing and typography
+ */
+
+.history-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+/* Header styles */
+.history-page .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: white;
+  border-bottom: 1px solid #e1e4e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  z-index: 10;
+}
+
+.history-page .header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #343a40;
+  margin: 0;
+}
+
+.action-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Search input */
+.search-container {
+  width: 280px;
+  position: relative;
+}
+
+.search-container input {
+  padding: 12px 16px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.search-container input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+.back-button {
+  background-color: #f1f3f5;
+  color: #495057;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+  background-color: #e9ecef;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Table container */
+.history-table-container {
+  flex: 1;
+  padding: 24px;
+  overflow: auto;
+}
+
+/* Table styles */
+.history-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.history-table th,
+.history-table td {
+  padding: 16px;
+  text-align: left;
+}
+
+.history-table td {
+  border-top: 1px solid #f0f0f0;
+  color: #495057;
+  font-size: 14px;
+}
+
+/* Table header styles */
+.history-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #343a40;
+  cursor: pointer;
+  user-select: none;
+  position: sticky;
+  top: 0;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  padding-right: 24px; /* Space for sort icons */
+}
+
+.history-table th:hover {
+  background-color: #e9ecef;
+}
+
+/* Sorting indicator styles */
+.history-table th::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  opacity: 0.6;
+  position: absolute;
+  right: 8px;
+}
+
+.history-table th.sorted-asc::after {
+  content: "▲";
+}
+
+.history-table th.sorted-desc::after {
+  content: "▼";
+}
+
+/* Table row hover effect */
+.history-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.history-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.history-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Empty state */
+.no-records {
+  text-align: center;
+  padding: 48px;
+  color: #8898aa;
+  font-size: 15px;
+  background-color: #f8f9fa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .history-table-container {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .history-page .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .action-bar {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .search-container {
+    width: 70%;
+  }
+
+  .history-table {
+    min-width: 600px; /* Force horizontal scroll on small screens */
+  }
+
+  .history-table th,
+  .history-table td {
+    padding: 12px;
+  }
+
+  .history-table-container {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-container {
+    width: 100%;
+  }
+
+  .action-bar {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+}

@@ -1,0 +1,588 @@
+/* 
+ * MainPage Component Styles
+ * 
+ * Defines styles for:
+ * 1. Base layout structure
+ * 2. Header and navigation elements
+ * 3. Folder grid view
+ * 4. Item cards and lists
+ * 5. Details panel
+ * 6. Responsive design for various screen sizes
+ */
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: white;
+  border-bottom: 1px solid #e1e4e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  z-index: 10;
+}
+
+.search-bar {
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-bar input {
+  padding: 12px 16px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.search-bar input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+/* Button Styles */
+.add-folder-btn,
+.add-item-btn,
+.view-history-btn,
+.back-button {
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.add-folder-btn:hover,
+.add-item-btn:hover,
+.view-history-btn:hover,
+.back-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-folder-btn:active,
+.add-item-btn:active,
+.view-history-btn:active,
+.back-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-folder-btn,
+.add-item-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.view-history-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.back-button {
+  background-color: #f1f3f5;
+  color: #495057;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Folder Grid View */
+.folders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 24px;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+/* Folder Card Styles */
+.folder-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 160px;
+  text-align: center;
+  border: 1px solid #eaeaea;
+}
+
+.folder-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  border-color: #d0d7de;
+}
+
+.folder-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #3498db;
+}
+
+.folder-name {
+  font-size: 16px;
+  font-weight: 600;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  color: #343a40;
+}
+
+/* Items View */
+.items-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.items-header {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: #f1f3f5;
+  border-bottom: 1px solid #e1e4e8;
+  gap: 16px;
+}
+
+.folder-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+  color: #343a40;
+}
+
+/* Item Container and Card Styles */
+.items-container {
+  flex: 1;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  overflow-y: auto;
+}
+
+.item-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #eaeaea;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: #d0d7de;
+}
+
+.item-card.selected {
+  border: 2px solid #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.item-image {
+  height: 160px;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.item-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.placeholder-image {
+  font-size: 48px;
+  color: #ced4da;
+}
+
+.item-info {
+  padding: 16px;
+  flex: 1;
+}
+
+.item-name {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #343a40;
+}
+
+.item-count,
+.item-threshold {
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 6px;
+}
+
+.item-threshold.alert {
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+.item-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid #f0f0f0;
+  background-color: #f8f9fa;
+}
+
+.item-edit {
+  background-color: #3498db;
+  color: white;
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.item-edit:hover {
+  background-color: #2980b9;
+}
+
+.item-quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity {
+  font-weight: 600;
+  font-size: 16px;
+  min-width: 30px;
+  text-align: center;
+}
+
+.decrease,
+.increase {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  padding: 0;
+  border-radius: 6px;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.decrease {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.decrease:hover {
+  background-color: #c0392b;
+}
+
+.increase {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.increase:hover {
+  background-color: #27ae60;
+}
+
+/* Detail Panel Styles */
+.item-details-panel {
+  width: 360px;
+  background-color: white;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #e1e4e8;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e1e4e8;
+  background-color: #f8f9fa;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #343a40;
+  font-weight: 600;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.close-button:hover {
+  background-color: #e9ecef;
+  color: #343a40;
+}
+
+.panel-content {
+  padding: 24px;
+  flex: 1;
+}
+
+.panel-content p {
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #495057;
+}
+
+.panel-content strong {
+  font-weight: 600;
+  color: #343a40;
+}
+
+.panel-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.edit-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.edit-button:hover {
+  background-color: #2980b9;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  justify-content: center;
+}
+
+/* No Items Message */
+.no-items-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  text-align: center;
+  color: #6c757d;
+  width: 100%;
+  grid-column: 1 / -1;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  border: 1px dashed #ced4da;
+}
+
+.no-items-message p {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.no-items-message button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 16px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.no-items-message button:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .folders-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+    padding: 24px;
+  }
+
+  .folder-card {
+    height: 140px;
+    padding: 16px;
+  }
+
+  .folder-icon {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .search-bar {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .action-buttons {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .folders-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .folder-card {
+    height: 120px;
+  }
+
+  .folder-icon {
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+
+  .folder-name {
+    font-size: 14px;
+  }
+
+  .items-container {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .item-details-panel {
+    width: 100%;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80%;
+    z-index: 200;
+    border-top: 1px solid #e1e4e8;
+    border-left: none;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .panel-header {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+}
+
+.delete-folder-btn {
+  background-color: #f1f3f5;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+  padding: 8px 14px;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.delete-folder-btn:hover {
+  background-color: #e74c3c;
+  color: white;
+}
